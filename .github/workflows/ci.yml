@@ -238,6 +238,12 @@ jobs:
             echo "override_branch=" >> $GITHUB_OUTPUT
           fi
 
+      - name: Debug
+        run: |
+          set -xe
+          echo "branch:"
+          echo ${{ steps.coverage_branch.outputs.override_branch }}
+
       - name: Upload coverage
         if: matrix.coverage
         uses: codecov/codecov-action@v5
